@@ -44,7 +44,7 @@ public class Program
 
         do
         {
-            string s = "\n1. Создать массив\n2. Напечатать массив\n3. Удалить элементы с нечётными индексами\n4. Назад\n";
+            string s = "\n1. Создать массив\n2. Напечатать массив\n3. Удалить элементы с чётными индексами\n4. Назад\n";
             choice = CheckInput(s);
 
             switch (choice)
@@ -358,9 +358,9 @@ public class Program
     public static void DeleteElement(ref int[] array)
     {
 
-        if (array == null || array.Length == 0)
+        if (array == null || array.Length == 0 || array.Length == 1)
         {
-            Console.WriteLine("\nМассив пуст\n");
+            Console.WriteLine("\nНечего удалять\n");
             return;
         }
         int count = 0;
@@ -406,11 +406,14 @@ public class Program
             for (int j = 0; j < matrix.GetLength(0); j++)
                 newMatrix[i, j+k] = matrix[i, j];
 
-        matrix = newMatrix;
 
-       /* Random rnd = new Random();
+
+
+
+        matrix = newMatrix;
+        /*Random rnd = new Random();
         for (int i = 0; i < matrix.GetLength(0); i++)
-            for (int j = 0; j < matrix.GetLength(0) - k; j++)
+            for (int j = 0; j < matrix.GetLength(1)-k; j++)
                 matrix[i, j] = rnd.Next(1, 10); */
 
         /*Random rnd = new Random();
@@ -425,11 +428,12 @@ public class Program
     {
 
         //Удалить все строки с четными номерами
-        if (jaggedArray == null || jaggedArray.Length == 0)
+        if (jaggedArray == null || jaggedArray.Length == 0 || jaggedArray.Length == 1)
         {
-            Console.WriteLine("\nМассив пуст\n");
+            Console.WriteLine("\nНечего удалять\n");
             return;
         }
+
 
         // Считаем количество строк с четными номерами
         int rowCount = 0;
@@ -467,3 +471,6 @@ public class Program
 
     } // для третьего
 }
+
+// Добавить индексы человеческие в одномерном ++
+// в рваном уведомление что больше нет четных строк ++
